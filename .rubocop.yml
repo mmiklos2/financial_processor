@@ -6,3 +6,4 @@ Style/Documentation:
 AllCops:
   Exclude:
     - 'spec/spec_helper.rb'
+    - 'bin/bundle'
