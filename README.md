@@ -21,4 +21,10 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+## TODO
+
+* Create database schema
+* Create models
+* Add unit structure
+* Add sidekiq to enable workers
+* Enable endpoint webhook processing

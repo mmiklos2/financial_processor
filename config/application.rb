@@ -25,5 +25,11 @@ module FinancialProcessor
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # Fine for now, would add directories to ignores list if there were any
+    lib = root.join('lib')
+
+    config.autoload_paths << lib
+    config.eager_load_paths << lib
   end
 end
