@@ -1,0 +1,8 @@
+# Disable Style/Documentation cop
+Style/Documentation:
+  Enabled: false
+
+# Exclude directories and files from RuboCop
+AllCops:
+  Exclude:
+    - 'spec/spec_helper.rb'
