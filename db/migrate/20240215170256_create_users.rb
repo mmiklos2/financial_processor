@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration[7.0]
     create_table :users do |t|
       t.string :email, null: false, index: { unique: true }
       t.string :name, null: false
-      t.bigint :stripe_customer_id, index: { unique: true }
+      t.string :stripe_customer_id, null: false
 
       t.timestamps
     end
