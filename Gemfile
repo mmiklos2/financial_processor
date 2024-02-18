@@ -14,6 +14,7 @@ gem 'sqlite3', '~> 1.4'
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
 
+gem 'sidekiq', '~> 6.5.5'
 gem 'stripe', '10.8.0'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
