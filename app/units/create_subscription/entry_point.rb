@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module CreateUser
+module CreateSubscription
   class EntryPoint < BaseEntryPoint
 
     def initialize(params)
