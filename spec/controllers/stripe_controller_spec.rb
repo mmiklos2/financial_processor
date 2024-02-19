@@ -4,9 +4,28 @@ require 'rails_helper'
 
 RSpec.describe StripeController, type: :controller do
   describe 'POST #webhook' do
-    it 'returns a 204 status' do
-      post :process_webhook
-      expect(response).to have_http_status(:no_content)
+    context 'when the Stripe signature is invalid' do
+      before do
+        allow(Stripe::Webhook::Signature).to receive(:verify_header)
+          .and_raise(Stripe::SignatureVerificationError.new('', ''))
+      end
+
+      it 'returns a 400 status' do
+        post :process_webhook
+        expect(response).to have_http_status(:bad_request)
+      end
+    end
+
+    context 'when the Stripe signature is valid' do
+      before do
+        allow(Stripe::Webhook::Signature).to receive(:verify_header).and_return(true)
+        expect(CreateStripeEventWorker).to receive(:perform_async).once
+      end
+
+      it 'returns a 204 status' do
+        post :process_webhook
+        expect(response).to have_http_status(:no_content)
+      end
     end
   end
 end
