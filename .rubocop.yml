@@ -7,3 +7,11 @@ AllCops:
   Exclude:
     - 'spec/spec_helper.rb'
     - 'bin/bundle'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - 'db/**/*'
+
+Lint/MissingSuper:
+  Enabled: false

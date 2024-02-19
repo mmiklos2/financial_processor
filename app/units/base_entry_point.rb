@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class BaseEntryPoint
-
   class << self
     def call(...)
       new(...).call
@@ -36,5 +35,4 @@ class BaseEntryPoint
   def validation_errors
     validation_result.errors.to_h
   end
-
 end

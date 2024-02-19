@@ -2,7 +2,6 @@
 
 module CreateStripeEvent
   class Action
-
     def initialize(contract)
       @contract = contract
     end
@@ -22,6 +21,5 @@ module CreateStripeEvent
     attr_reader :contract
 
     delegate :params, to: :contract, private: true
-
   end
 end

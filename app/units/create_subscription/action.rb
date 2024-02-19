@@ -2,7 +2,6 @@
 
 module CreateSubscription
   class Action
-
     def initialize(contract)
       @contract = contract
     end
@@ -13,7 +12,7 @@ module CreateSubscription
         state: 'unpaid',
         stripe_subscription_id: params[:stripe_subscription_id],
         plan_name: params[:plan_name],
-        start_date: Time.at(params[:start_date]),
+        start_date: Time.at(params[:start_date])
       )
       subscription.save
       subscription
@@ -28,6 +27,5 @@ module CreateSubscription
     def user
       UserQueries.by_stripe_customer_id(params[:stripe_customer_id]).take
     end
-
   end
 end

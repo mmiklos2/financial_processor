@@ -15,7 +15,7 @@ RSpec.describe CreateStripeEvent::EntryPoint do
       expect(subject).to have_attributes(
         event_type:,
         event_json:,
-        stripe_event_id:,
+        stripe_event_id:
       )
     end
   end
@@ -26,6 +26,5 @@ RSpec.describe CreateStripeEvent::EntryPoint do
     it 'raises an error' do
       expect { subject }.to raise_error(Errors::ValidationError, { event_json: ['must be a string'] }.to_s)
     end
-
   end
 end

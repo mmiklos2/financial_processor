@@ -7,7 +7,7 @@ RSpec.describe BaseEntryPoint do
     Class.new(BaseEntryPoint) do
       def initialize(contract, action, params)
         @params = params
-        self.contract = contract.new(params: params)
+        self.contract = contract.new(params:)
         self.action = action
       end
 

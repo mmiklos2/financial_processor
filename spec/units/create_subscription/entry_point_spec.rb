@@ -8,7 +8,7 @@ RSpec.describe CreateSubscription::EntryPoint do
   let(:user) { create(:user) }
   let(:state) { 'unpaid' }
   let(:stripe_subscription_id) { 'sub_123' }
-  let(:start_date) { 1708292157 }
+  let(:start_date) { 1_708_292_157 }
   let(:params) { { stripe_subscription_id:, start_date:, stripe_customer_id: user.stripe_customer_id } }
 
   before { user }
@@ -30,6 +30,5 @@ RSpec.describe CreateSubscription::EntryPoint do
     it 'raises an error' do
       expect { subject }.to raise_error(Errors::ValidationError, { start_date: ['must be an integer'] }.to_s)
     end
-
   end
 end

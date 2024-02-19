@@ -2,7 +2,6 @@
 
 module CreateUser
   class Action
-
     def initialize(contract)
       @contract = contract
     end
@@ -18,6 +17,5 @@ module CreateUser
     attr_reader :contract
 
     delegate :params, to: :contract, private: true
-
   end
 end

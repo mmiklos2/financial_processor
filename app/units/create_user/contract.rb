@@ -2,7 +2,6 @@
 
 module CreateUser
   class Contract < BaseContract
-
     schema do
       optional(:name).filled(:string)
       optional(:email).filled(:string)
@@ -12,6 +11,5 @@ module CreateUser
     rule(:email) do
       key.failure(:format?) if value && !value.match?(URI::MailTo::EMAIL_REGEXP)
     end
-
   end
 end
