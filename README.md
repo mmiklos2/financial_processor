@@ -5,6 +5,9 @@
 
 * System dependencies
   * Redis
+    * `brew install redis` on MacOS and `sudo apt-get install redis-server` on Ubuntu
+    * `brew services start redis` on MacOS and `sudo systemctl start redis-server` on Ubuntu
+    * `redis-server` to start the server
   * Sidekiq
 
 * Configure stripe
