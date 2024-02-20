@@ -4,7 +4,7 @@ require 'rails_helper'
 require 'sidekiq/testing'
 Sidekiq::Testing.fake!
 
-RSpec.describe CreateStripeEventWorker, type: :job do
+RSpec.describe DispatchStripeEventWorker, type: :job do
   let(:event) { double('event') }
   let(:data_double) { double('data') }
   let(:event_data) { { 'data' => { 'object' => data_double } } }
@@ -27,7 +27,7 @@ RSpec.describe CreateStripeEventWorker, type: :job do
     end
 
     it 'calls the correct units' do
-      expect(CreateStripeEvent::EntryPoint).to receive(:call).once
+      expect(DispatchStripeEvent::EntryPoint).to receive(:call).once
 
       described_class.perform_async(request_body, stripe_signature)
       described_class.drain

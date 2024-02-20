@@ -22,9 +22,9 @@ RSpec.describe StripeController, type: :controller do
         expect(CreateStripeEventWorker).to receive(:perform_async).once
       end
 
-      it 'returns a 204 status' do
+      it 'returns a 200 status' do
         post :process_webhook
-        expect(response).to have_http_status(:no_content)
+        expect(response).to have_http_status(:ok)
       end
     end
   end

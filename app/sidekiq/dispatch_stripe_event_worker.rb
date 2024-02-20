@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 
-class CreateStripeEventWorker
+class DispatchStripeEventWorker
   include Sidekiq::Worker
   sidekiq_options retry: false
 
   def perform(request_body, stripe_signature)
     build_stripe_event(request_body, stripe_signature)
-    CreateStripeEvent::EntryPoint.call({
-                                         stripe_event_id: stripe_event['id'],
-                                         event_type: stripe_event['type'],
-                                         event_json: stripe_event['data']['object'].to_json
-                                       })
+    DispatchStripeEvent::EntryPoint.call({
+                                           stripe_object: stripe_event['data']['object'].to_h,
+                                           event_type: stripe_event['type']
+                                         })
   end
 
   private
