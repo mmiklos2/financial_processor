@@ -11,9 +11,9 @@ module DispatchStripeEvent
 
       def unit_params(stripe_object)
         {
-          stripe_customer_id: stripe_object['customer'],
-          stripe_invoice_id: stripe_object['id'],
-          stripe_subscription_id: stripe_object['subscription']
+          stripe_customer_id: stripe_object[:customer],
+          stripe_invoice_id: stripe_object[:id],
+          stripe_subscription_id: stripe_object[:subscription]
         }.compact_blank
       end
     end

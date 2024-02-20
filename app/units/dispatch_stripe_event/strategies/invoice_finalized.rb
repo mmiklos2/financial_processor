@@ -11,8 +11,8 @@ module DispatchStripeEvent
 
       def unit_params(stripe_object)
         {
-          stripe_invoice_id: stripe_object['id'],
-          state: stripe_object['status']
+          stripe_invoice_id: stripe_object[:id],
+          state: stripe_object[:status]
         }.compact_blank
       end
     end

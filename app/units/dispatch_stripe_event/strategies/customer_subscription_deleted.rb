@@ -11,7 +11,7 @@ module DispatchStripeEvent
 
       def unit_params(stripe_object)
         {
-          stripe_subscription_id: stripe_object['id'],
+          stripe_subscription_id: stripe_object[:id],
           state: 'canceled'
         }.compact_blank
       end

@@ -12,7 +12,7 @@ class CreateStripeEventWorker
                                          event_json: stripe_event['data']['object'].to_json
                                        })
     DispatchStripeEvent::EntryPoint.call({
-                                           stripe_object: stripe_event['data']['object'],
+                                           stripe_object: stripe_event['data']['object'].to_h,
                                            event_type: stripe_event['type']
                                          })
   end
