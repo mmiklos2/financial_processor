@@ -38,10 +38,8 @@ ActiveRecord::Schema[7.0].define(version: 20_240_218_153_221) do
     t.integer 'user_id', null: false
     t.string 'stripe_customer_id', null: false
     t.string 'state', default: 'unpaid', null: false
-    t.string 'plan_name'
     t.string 'stripe_subscription_id', null: false
     t.date 'start_date', null: false
-    t.date 'end_date'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.index ['user_id'], name: 'index_subscriptions_on_user_id'
