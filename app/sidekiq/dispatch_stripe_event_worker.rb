@@ -10,6 +10,8 @@ class DispatchStripeEventWorker
                                            stripe_object: stripe_event['data']['object'].to_h,
                                            event_type: stripe_event['type']
                                          })
+  rescue Errors::ValidationError
+    Rails.logger.info('Event currently unsupported')
   end
 
   private
