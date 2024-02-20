@@ -12,11 +12,12 @@
 
 * Configure stripe
   * To use stripe, you need to have a stripe account. You can create one [here](https://stripe.com/)
-  * Fetch the API test key from https://dashboard.stripe.com/test/apikeys `(sk_test_...)`
+  * Fetch the API test key from [here](https://dashboard.stripe.com/test/apikeys) `(sk_test_...)`
       * This will be added to the credentials file
   * Install stripe CLI from [here](https://stripe.com/docs/stripe-cli)
-      * This will be used to listen to stripe webhooks
-      * Once installed, run `stripe listen --forward-to localhost:3000/stripe/process_webhook`
+      * This will be used to listen to stripe webhooks and emit events
+      * Once installed, run `stripe login` and follow the instructions
+      * Once logged in, run `stripe listen --forward-to localhost:3000/stripe/process_webhook`
           * Copy the webhook key the CLI returns `(whsec_...)`
           * This will be added to the credentials file
 
@@ -33,9 +34,9 @@
 
 * Services (job queues, cache servers, search engines, etc.)
   * Sidekiq
-    * `bundle exec sidekiq` in the root directory
+    * `bundle exec sidekiq` in the root directory in a terminal window
   * Redis
-    * `redis-server -p 6379` in the root directory 
+    * `redis-server -p 6379` in the root directory in a terminal window
 
 * Deployment instructions
   * `bundle exec rails server` in the root directory
