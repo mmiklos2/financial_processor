@@ -16,6 +16,9 @@
 /db/*.sqlite3
 /db/*.sqlite3-*
 
+# Ignore credentials
+/config/credentials.yml.enc
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
